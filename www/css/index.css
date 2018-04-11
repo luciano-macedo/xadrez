@@ -1,0 +1,287 @@
+
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+@font-face {
+	font-family:'FonteApp';
+	src: url("../fonts/chaparral.otf");
+}
+body {
+	font-family:'fonteApp';
+    font-size:14px;
+    height:100%;
+    margin:0px auto;
+    padding:0px;
+    width:100%;
+	
+	color:black;
+}
+/* Portrait layout (default) */
+.app {
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+	width:340px; /* Valor da Largura */
+	height:590px; /* Valor da Altura */                 /* text area width */
+	margin-left:-170px; /* Metade do valor da Largura */
+	margin-top:-300px; /* Metade da valor da Altura */
+    text-align:center;
+	border: 0px solid black;
+}
+.nome{
+	position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+	width:360px; /* Valor da Largura */
+	height:630px; /* Valor da Altura */                 /* text area width */
+	margin-left:-180px; /* Metade do valor da Largura */
+	margin-top:-315px; /* Metade da valor da Altura */
+    text-align:center;
+	border: 1px solid black;
+	background-image: url("../img/nomeApp.png");
+}
+
+div#centro{
+	border: 0px solid blue;
+	margin: 1px 1px 1px 1px;
+			left:50%;
+			top:50%;
+			margin-left:-168px; /* Metade do valor da Largura */
+			margin-top:-46px; /* Metade da valor da Altura */
+			width:336px; /* Valor da Largura */
+			height:90px; /* Valor da Altura */
+			position:absolute;
+			color:black;
+}
+button#bBranco{
+	font-size: 40px;
+	margin-left:-168px; /* Metade do valor da Largura */
+	margin-bottom:1px; /* Metade da valor da Altura */
+	width:336px; /* Valor da Largura */
+	height:246px; /* Valor da Altura */
+	position:absolute;
+	bottom: 1px;
+	
+}
+button#bPreto{
+	font-size: 40px;
+	margin-left:-168px; /* Metade do valor da Largura */
+	margin-bottom:1px; /* Metade da valor da Altura */
+	width:336px; /* Valor da Largura */
+	height:246px; /* Valor da Altura */
+	position:absolute;
+	top: 1px;
+}
+img{
+	margin: 28px 15px 0px 15px ;
+}
+img#regras{
+	margin: 0px 15px 5px 15px ;
+}
+fieldset{
+	border: 1px solid;
+	}
+div.container{
+	position: absolute;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index:999;
+}
+.popup{
+	width: 340px;
+	margin-left:-170px;
+	left:50%;
+	height: 591px;
+	margin-top:-301px;
+	top:50%;
+	position: fixed;	
+	background-color: #fff;
+	border-radius: 10px;
+	background-color: lightblue;
+	z-index:1000;
+}
+div.options{
+	position: absolute;
+	bottom:68px;
+	margin-left: 20%;
+	left: 0px;
+	padding: 10px 10px 10px 10px;
+	background-color:#fff ;
+	border-radius: 10px;
+}
+div.options1{
+	position: absolute;
+	width: 40%;
+	bottom:9px;
+	margin-left: 30%;
+	left: 0px;
+	padding: 10px 10px 10px 10px;
+	background-color: #2ecc71;
+	border-radius: 10px;
+}
+div.sim{
+	position: absolute;
+	width: 40%;
+	bottom:9px;
+	margin-left: 5%;
+	left: 0px;
+	padding: 10px 10px 10px 10px;
+	background-color: #2ecc71;
+	border-radius: 10px;
+}
+div.nao{
+	position: absolute;
+	width: 40%;
+	bottom:9px;
+	margin-left: 55%;
+	left: 0px;
+	padding: 10px 10px 10px 10px;
+	background-color: red;
+	border-radius: 10px;
+}
+div.borda{
+	border:1px solid;
+	margin: 10px 10px 5px 10px;
+	padding: 5px 5px 5px 5px;
+}
+div.row{
+			margin: 0px 5px 5px 5px;
+			border: 0px solid;
+		}
+fieldset { 
+			background-color: rgba(0,0,0,.2);
+			margin: 10px 10px 10px 10px;
+			padding-top: 10px;
+			border-radius: 10px;
+		}
+label{
+		margin: 5px 0px 10px 0px;
+		}
+label#contPreto{
+	color:white;
+	position:absolute;
+	top: 10px;
+	right: 230px;
+	
+}
+label#delayPreto{
+	color:white;
+	position:absolute;
+	top: 210px;
+	right: 230px;
+	
+}
+label#contBranco{
+	position:absolute;
+	bottom:0px;
+	left: 230px;
+}
+
+label#delayBranco{
+	position:absolute;
+	bottom:200px;
+	left: 230px;
+}
+.popupAjuda{
+	width: 340px;
+	margin-left:-170px;
+	left:50%;
+	height: 591px;
+	margin-top:-301px;
+	top:50%;
+	position: fixed;	
+	background-color: #fff;
+	border-radius: 10px;
+	background-color: lightblue;
+	z-index:1000;
+	border: 1px solid;
+}
+
+	}
+
+.cabeca_para_baixo {
+-moz-transform: rotate(180deg);
+-o-transform: rotate(180deg);
+-webkit-transform: rotate(180deg);
+-ms-transform: rotate(180deg);
+position: absolute;
+}
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app{
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+	width:590px; /* Valor da Largura */
+	height:340px; /* Valor da Altura */                 /* text area width */
+	margin-left:-300px; /* Metade do valor da Largura */
+	margin-top:-170px; /* Metade da valor da Altura */
+    text-align:center;
+	background:url(img/nomeApp1.png);
+	    }
+		
+	.nome{
+	position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+	width:640px; /* Valor da Largura */
+	height:360px; /* Valor da Altura */                 /* text area width */
+	margin-left:-320px; /* Metade do valor da Largura */
+	margin-top:-170px; /* Metade da valor da Altura */
+    text-align:center;
+	border: 1px solid black;
+	background-image: url("../img/nomeApp1.png");
+}
+	
+	div#centro{
+	margin: 1px 1px 1px 1px;
+			left:50%;
+			top:50%;
+			margin-left:-40px; /* Metade do valor da Largura */
+			margin-top:-168px; /* Metade da valor da Altura */
+			width:85px; /* Valor da Largura */
+			height:336px; /* Valor da Altura */
+			color:black;
+			border: 0px solid black;
+			display:none;
+}
+button#bBranco{
+	font-size: 40px;
+	margin-left:15px; 
+	margin-bottom:5px;
+	width:300px; /* Valor da Largura */
+	height:326px; /* Valor da Altura */
+	position:absolute;
+	bottom: 0px;
+	border: 0px solid black;
+
+	
+}
+button#bPreto{
+	font-size: 40px;
+	right:300px; /* Metade do valor da Largura */
+	width:300px; /* Valor da Largura */
+	height:326px; /* Valor da Altura */
+	position:absolute;
+	top: 7px;
+	border: 0px solid black;
+}
+
+.cabeca_para_baixo {
+-moz-transform: rotate(0deg);
+-o-transform: rotate(0deg);
+-webkit-transform: rotate(0deg);
+-ms-transform: rotate(0deg);
+position: absolute;
+}
+.cabeca_para_lado {
+-moz-transform: rotate(270deg);
+-o-transform: rotate(270deg);
+-webkit-transform: rotate(270deg);
+-ms-transform: rotate(270deg);
+position: absolute;
+}
+
+
+
+}

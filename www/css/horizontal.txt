@@ -1,0 +1,24 @@
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+	position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+	width:590px; /* Valor da Largura */
+	height:340px; /* Valor da Altura */                 /* text area width */
+	margin-left:-300px; /* Metade do valor da Largura */
+	margin-top:-170px; /* Metade da valor da Altura */
+    text-align:center;
+	border: 1px solid blue;
+	
+   
+	div#branco{
+	border: 1px solid red;
+	margin-bottom: 500px;
+	background-color: yellow;
+	position: fixed;
+}
+}
+}
+

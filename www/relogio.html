@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+	<meta http-equiv="content-type" content="text/html;charset=iso-8859-1"
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/animate.css" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+
+    <title>Relogio de Xadrez</title>
+	<style>
+		body{
+			font-family:'fonteApp';
+		}
+		
+		div.row{
+			margin: 0px 5px 5px 5px;
+			border: 0px solid;
+		}
+		
+		fieldset { 
+			background-color: rgba(0,0,0,.2);
+			margin: 10px 10px 10px 10px;
+			padding-top: 10px;
+			border-radius: 10px;
+		}
+		
+		label{
+		margin: 5px 0px 10px 0px;
+		}
+		
+	</style>
+<script type="text/javascript"> 
+</script>
+
+</head>
+
+<body onload="carregarconfig(), valorTempo()">
+	<div class="container cabeca_para_lado" id="config"  style="display:none;">
+		<div class="popup animated fadeInDown ">
+			<fieldset>
+				<h6>CONTROLE DE TEMPO</h6>
+				<div class="row">
+					<div class="col-7">
+						<label>Tempo de Partida:</label>
+					</div>
+					<div class="col-4">
+						<select id="cPartida" class="form-control-sm" style="width:100px;">
+							<option value="0" selected>10 Min.</option>
+							<option value="1" >20 Min.</option>
+							<option value="2" >30 Min.</option>
+							<option value="3" >1 hora</option>
+							<option value="4" >2 horas</option>
+						</select>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-7">
+						<label>Tempo Branco:</label>
+					</div>
+					<div class="col-4">
+						<select id="cBranco" class="form-control-sm" style="width:100px;" onchange="tempo()" >
+							<option value="0" >20 %</option>
+							<option value="1" >40 %</option>
+							<option value="2" selected>50 %</option>
+							<option value="3" >60 %</option>
+							<option value="4" >80 %</option>
+						</select>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-7">
+						<label>Tempo Preto:</label>
+					</div>
+					
+					<div class="col-5" >
+						<select id="cPreto" class="form-control-sm" style="width:100px;" onchange="tempo1()" >
+							<option value="0" >20 %</option>
+							<option value="1" >40 %</option>
+							<option value="2" selected>50 %</option>
+							<option value="3" >60 %</option>
+							<option value="4" >80 %</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-7">
+						<label>Delay:</label>
+					</div>
+					<div class="col-4">
+						<select id="cDelay" class="form-control-sm" style="width:100px;">
+							<option value="0" selected>Não</option>
+							<option value="1" >2 S.</option>
+							<option value="2" >3 S.</option>
+							<option value="3" >5 S.</option>
+						</select>
+					</div>
+				</div>	
+			
+			</fieldset>
+			
+			<fieldset>
+				<h6>CONTROLE DE SOM</h6>
+				<div class="row">
+					<div class="col-7">
+						<label>Ligado:</label>
+					</div>
+					<div class="col-4">
+						<select id="cLigado" class="form-control-sm" style="width:100px;">
+							<option value="0" >Não</option>
+							<option value="1" selected>Sim</option>
+						</select>
+					</div>
+				</div>	
+				<div class="row">
+					<div class="col-7">
+						<label>Alterar Som:</label>
+					</div>
+					<div class="col-4">
+						<select id="cSom" class="form-control-sm" style="width:100px;" onchange="troca()">
+							<option value="0" selected>Click 1</option>
+							<option value="1" >Click 2</option>
+							<option value="2" >Click 3</option>
+						</select>
+					</div>
+				</div>	
+			</fieldset>
+			<fieldset>
+			<div class="row">
+					<div class="col-7">
+						<label> Visualizar Jogadas:</label>
+					</div>
+					<div class="col-4">
+						<select id="cJogadas" class="form-control-sm" style="width:100px;">
+							<option value="0" selectedo>Não</option>
+							<option value="1" >Sim</option>
+						</select>
+					</div>
+			</div>	
+			<div class="row">
+					<div class="col-7">
+						<label>Avisar Final</label>
+					</div>
+					<div class="col-4">
+						<select id="cAviso" class="form-control-sm" style="width:100px;">
+							<option value="0" >Não</option>
+							<option value="1" selected>Sim</option>
+						</select>
+					</div>
+			</div>
+				
+			</fieldset>
+				<div class="row">
+					<div class="options" onclick="resetar()">
+						<a >RESTAURAR DE FABRICA</a>
+					</div>
+				</div>					
+				<div class="sim" onclick="salvar()">
+					<a onclick="salvar()" >SALVAR</a>
+				</div>
+				<div class="nao" onclick="cancelar()">
+					<a onclick="cancelar()" >CANCELAR</a>
+				</div>
+		</div>
+		</div>
+		<div class="container cabeca_para_lado" id="msnpopup1"  style="display:none;">
+		<div class="popupAjuda animated fadeInDown">
+			<fieldset onclick="regraBispo()">
+				<h6>BISPO</h6>
+				<div class=" animated zoomIn" id="dBispo" style="display:none;">
+				<img id="regras" src="img/bispo.png">
+				<p>Esta peça se movimenta somente nas diagonais do tabuleiro.</p>
+				</div>
+			</fieldset>	
+			<fieldset onclick="regraCavalo()">
+				<h6>CAVALO</h6>
+				<div class=" animated zoomIn" id="dCavalo" style="display:none;">
+				<img id="regras" src="img/cavalo.png" >
+				<p>É a única peça que pode "saltar" sobre outras peças. A movimentação do cavalo é feita em forma de "L", ou seja, anda 2 casas em qualquer direção e depois mais uma em sentido perpendicular.</p>
+				</div>
+			</fieldset>
+			<fieldset onclick="regraPeao()">
+				<h6>PEÃO</h6>	
+				<div class=" animated zoomIn" id="dPeao" style="display:none;">
+				<img id="regras" src="img/peao.png">
+				<p>O peão pode deslocar-se 1 casa para frent. Na sua posição inicial, ele pode dar um salto de 2 casas à frente. Um peão pode capturar a peça imediatamente na fileira à frente na diagonal</p>
+				</div>
+			</fieldset>
+			<fieldset onclick="regraRainha()">
+				<h6>RAINHA</h6>
+				<div class=" animated zoomIn" id="dRainha" style="display:none;">
+				<img id="regras" src="img/rainha.png">
+				<p>Uma Rainha pode se movimentar tanto na horizontal como na vertical (assim como uma torre) ou nas diagonais (assim como um bispo).</p>
+				</div>
+			</fieldset>
+			<fieldset onclick="regraRei()">
+				<h6>REI</h6>
+				<div class=" animated zoomIn" id="dRei" style="display:none;">
+				<img id="regras" src="img/rei.png">
+				<p>Se movimenta em qualquer direção, o limite de casas que um rei pode se deslocar é de uma casa por lance. O rei NUNCA pode fazer um movimento que resulte em um xeque para ele.</p>
+				</div>
+			</fieldset>
+			<fieldset onclick="regraTorre()">
+				<h6>TORRE</h6>
+				<div class=" animated zoomIn" id="dTorre" style="display:none;">
+				<img id="regras" src="img/torre.png">
+				<p>A movimentação da torre se dá somente de forma horizontal (linhas do tabuleiro) ou vertical (colunas do tabuleiro).</p>
+				</div>
+			</fieldset>
+			<div class="options1" onclick="notRegras()">
+			<a onclick="notRegras()" >OK</a>
+			</div>
+		</div>
+		</div>
+
+		
+		
+	
+		<div class="app" >
+        <div >
+			<button type="button" class="btn btn-dark cabeca_para_baixo" id="bPreto" style="font-size:70pt;" value="00:00"  onclick="ladoPreto()" disabled="true">00:00</button>
+			<label class="cabeca_para_baixo" id="delayPreto"></label>
+			<label class="cabeca_para_baixo" id="contPreto"></label>
+	   </div>
+		<div id="centro">
+			<div id="menu">
+				<img id ="inicio" src="img/iniciar.png" width="10%" height="40%"onclick="iniciar()">
+				<img src="img/reiniciar.png" width="10%" height="40%" onclick="reiniciar()">
+				<img src="img/configuracao.png" width="10%" height="40%" onclick="configurar()">
+				<img id ="audio" src="img/som.png" width="10%" height="40%" onclick="ativaSom()">
+				<img src="img/manual.png" width="10%" height="40%" onclick="regras()">
+			</div>
+        </div>
+		<div>
+			<button type="button" class="btn btn-light" id="bBranco" style="font-size:70pt;" value="00:00"onclick="ladoBranco()">00:00</button>
+			<label id="delayBranco"></label>
+			<label id="contBranco"></label>
+        </div>
+		
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+</body>
+
+</html>
